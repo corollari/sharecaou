@@ -75,3 +75,4 @@ Open a web browser and visit $IP/launchpad
 - https://www.scaleway.com/en/docs/installing-sharelatex-ubuntu/
 - https://github.com/overleaf/docker-image/issues/102
 - https://docs.docker.com/install/linux/docker-ce/ubuntu/
+- https://www.tug.org/texlive/tlmgr.html
