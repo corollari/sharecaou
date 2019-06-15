@@ -56,20 +56,35 @@ sudo npm install -g caou
 
 ### 6. Make sharelatex use caou
 We assume that you are inside the container, run `docker exec -it $SHARELATEXID bash` if not
-  1. Open `/var/www/sharelatex/clsi/` with an editor:
+  1. Open `/var/www/sharelatex/clsi/app/coffee/LatexRunner.coffee` with an editor:
 ```bash
-vi /var/www/sharelatex/clsi/
+/var/www/sharelatex/clsi/app/coffee/LatexRunner.coffee
 ```
   2. Find the following line:
-  
+```
+args = ["latexmk", "-cd", "-f", "-jobname=output", "-auxdir=$COMPILE_DIR", "-outdir=$COMPILE_DIR", "-synctex=1","-interaction=batchmode"]
+```
   3. Replace with this line:
-  
-  4. Open `/var/www/sharelatex/clsi/` with an editor:
+```
+args = ["caou", "--tex", "latexmk", "-cd", "-f", "-jobname=output", "-auxdir=$COMPILE_DIR", "-outdir=$COMPILE_DIR", "-synctex=1","-interaction=batchmode"]
+```
+  4. Open `/var/www/sharelatex/clsi/app/js/LatexRunner.js` with an editor:
+```bash
+vi /var/www/sharelatex/clsi/app/js/LatexRunner.js
+```
+  5. Find the following line:
+```
+    _latexmkBaseCommand: ((Settings != null ? (_ref1 = Settings.clsi) != null ? _ref1.latexmkCommandPrefix : void 0 : void 0) || []).concat(["latexmk", "-cd", "-f", "-jobname=output", "-auxdir=$COMPILE_DIR", "-outdir=$COMPILE_DIR", "-synctex=1", "-interaction=batchmode"]),
+```
+  6. Replace with this line:
+```
+    _latexmkBaseCommand: ((Settings != null ? (_ref1 = Settings.clsi) != null ? _ref1.latexmkCommandPrefix : void 0 : void 0) || []).concat(["caou", "--tex", "latexmk", "-cd", "-f", "-jobname=output", "-auxdir=$COMPILE_DIR", "-outdir=$COMPILE_DIR", "-synctex=1", "-interaction=batchmode"]),
+```
 
 ### 7. Restart the container
 
 ### 8. Set up admin account
-Open a web browser and visit $IP/launchpad
+Open a web browser and visit `$IP/launchpad` to create the administrator's account.
 
 ## Resources
 - https://www.scaleway.com/en/docs/installing-sharelatex-ubuntu/
