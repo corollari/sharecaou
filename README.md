@@ -63,7 +63,7 @@ sudo npm install -g caou
 We assume that you are inside the container, run `docker exec -it $SHARELATEXID bash` if not
   1. Open `/var/www/sharelatex/clsi/app/coffee/LatexRunner.coffee` with an editor:
 ```bash
-/var/www/sharelatex/clsi/app/coffee/LatexRunner.coffee
+vi /var/www/sharelatex/clsi/app/coffee/LatexRunner.coffee
 ```
   2. Find the following line:
 ```
