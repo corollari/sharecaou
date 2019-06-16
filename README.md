@@ -38,9 +38,8 @@ docker ps # GET the docker id of the sharelatex container
 docker exec -it $SHARELATEXID bash # Replace $SHARELATEXID with the id obtained in the last step
 
 # Update texlive
-wget http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh
-bash update-tlmgr-latest.sh
-tlmgr install scheme-full
+sudo apt-get update
+sudo apt-get install texlive-full
 ```
 
 ### 4. Install pandoc
