@@ -87,6 +87,11 @@ vi /var/www/sharelatex/clsi/app/js/LatexRunner.js
 ```
 
 ### 8. Restart the container
+```
+exit
+sudo docker-compose down
+sudo docker-compose up
+```
 
 ### 9. Set up admin account
 Open a web browser and visit `$IP/launchpad` to create the administrator's account.
