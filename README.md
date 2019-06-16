@@ -51,6 +51,8 @@ wget https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-1-amd64.
 ### 5. Install caou
 ```bash
 curl -s https://api.github.com/repos/corollari/caoutchouc/releases/latest | grep "browser_download_url.*linux" | cut -d : -f 2,3 | tr -d \" | wget -qi -
+sudo mv caou-linux /usr/bin/caou
+sudo mv caou-pandoc-filter-linux /usr/bin/caou-pandoc-filter
 ```
 
 ### 6. Make sharelatex use caou
