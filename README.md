@@ -43,23 +43,17 @@ bash update-tlmgr-latest.sh
 tlmgr install scheme-full
 ```
 
-### 4. Update node
-```bash
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt-get install -y nodejs
-```
-
-### 5. Install pandoc
+### 4. Install pandoc
 ```bash
 wget https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-1-amd64.deb && sudo dpkg -i pandoc-2.7.2-1-amd64.deb
 ```
 
-### 6. Install caou
+### 5. Install caou
 ```bash
-sudo npm install -g caou
+curl -s https://api.github.com/repos/corollari/caoutchouc/releases/latest | grep "browser_download_url.*linux" | cut -d : -f 2,3 | tr -d \" | wget -qi -
 ```
 
-### 7. Make sharelatex use caou
+### 6. Make sharelatex use caou
 We assume that you are inside the container, run `docker exec -it $SHARELATEXID bash` if not
   1. Open `/var/www/sharelatex/clsi/app/coffee/LatexRunner.coffee` with an editor:
 ```bash
@@ -86,13 +80,13 @@ vi /var/www/sharelatex/clsi/app/js/LatexRunner.js
     _latexmkBaseCommand: ((Settings != null ? (_ref1 = Settings.clsi) != null ? _ref1.latexmkCommandPrefix : void 0 : void 0) || []).concat(["caou", "--tex", "latexmk", "-cd", "-f", "-jobname=output", "-auxdir=$COMPILE_DIR", "-outdir=$COMPILE_DIR", "-synctex=1", "-interaction=batchmode"]),
 ```
 
-### 8. Commit docker image
+### 7. Commit docker image
 ```
 docker commit $SHARELATEXID corollari/sharecaou
 docker push corollari/sharecaou
 ```
 
-### 9. Set up admin account
+### 8. Set up admin account
 Open a web browser and visit `$IP/launchpad` to create the administrator's account.
 
 ## Resources
