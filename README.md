@@ -3,7 +3,16 @@
 
 This guides assumes usage of Ubuntu 18.04 LTS.
 
-## Setup
+
+## Quickstart
+Once you have installed Docker and docker-compose (see the [instructions on the Build Section](https://github.com/corollari/sharecaou#1-install-docker-see-the-docker-guide)), run:
+```
+wget https://raw.githubusercontent.com/corollari/sharecaou/master/docker-compose.yml
+docker-compose up
+```
+
+## Build
+If you'd prefer to build it directly from the sharelatex container follow these instrutions:
 ### 1. Install Docker (see the [docker guide](https://docs.docker.com/install/linux/docker-ce/ubuntu/))
 ```bash
 sudo apt-get update
