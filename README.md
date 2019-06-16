@@ -86,11 +86,10 @@ vi /var/www/sharelatex/clsi/app/js/LatexRunner.js
     _latexmkBaseCommand: ((Settings != null ? (_ref1 = Settings.clsi) != null ? _ref1.latexmkCommandPrefix : void 0 : void 0) || []).concat(["caou", "--tex", "latexmk", "-cd", "-f", "-jobname=output", "-auxdir=$COMPILE_DIR", "-outdir=$COMPILE_DIR", "-synctex=1", "-interaction=batchmode"]),
 ```
 
-### 8. Restart the container
+### 8. Commit docker image
 ```
-exit
-sudo docker-compose down
-sudo docker-compose up
+docker commit $SHARELATEXID corollari/sharecaou
+docker push corollari/sharecaou
 ```
 
 ### 9. Set up admin account
