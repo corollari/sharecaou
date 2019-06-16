@@ -51,7 +51,9 @@ wget https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-1-amd64.
 ### 5. Install caou
 ```bash
 curl -s https://api.github.com/repos/corollari/caoutchouc/releases/latest | grep "browser_download_url.*linux" | cut -d : -f 2,3 | tr -d \" | wget -qi -
+chmod +x caou-linux
 sudo mv caou-linux /usr/bin/caou
+chmod +x caou-pandoc-filter-linux
 sudo mv caou-pandoc-filter-linux /usr/bin/caou-pandoc-filter
 ```
 
