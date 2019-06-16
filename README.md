@@ -45,7 +45,7 @@ tlmgr install scheme-full
 
 ### 4. Install pandoc
 ```bash
-wget https://github.com/jgm/pandoc/releases/download/2.2.1/pandoc-2.2.1-1-amd64.deb && sudo dpkg -i pandoc-2.7.2-1-amd64.deb
+wget https://github.com/jgm/pandoc/releases/download/2.2.1/pandoc-2.2.1-1-amd64.deb && sudo dpkg -i pandoc-2.2.1-1-amd64.deb
 ```
 
 ### 5. Install caou
